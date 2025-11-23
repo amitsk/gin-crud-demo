@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gin-crud-demo
+  labels:
+    app: gin-crud-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gin-crud-demo
+  template:
+    metadata:
+      labels:
+        app: gin-crud-demo
+    spec:
+      containers:
+      - name: gin-crud-demo
+        image: gin-crud-demo:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_ENV
+          value: "prod"
+        - name: DATABASE_HOST
+          value: "postgres-service"
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: username
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: password
+        - name: DATABASE_DBNAME
+          value: "netflixdb"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20

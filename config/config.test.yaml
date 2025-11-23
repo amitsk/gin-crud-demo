@@ -1,0 +1,16 @@
+Server:
+  Port: 8080
+  Mode: test
+
+# These are placeholders only. Create a .env file
+Database:
+  Host: localhost
+  Port: 5432
+  User: postgres
+  Password: password
+  DBName: netflix_movies_test
+  SSLMode: disable
+
+Logger:
+  Level: debug
+  Format: text

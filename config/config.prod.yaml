@@ -1,0 +1,15 @@
+Server:
+  Port: 8080
+  Mode: release
+# These are placeholders only. Create a .env file
+Database:
+  Host: localhost
+  Port: 5432
+  User: postgres
+  Password: password
+  DBName: netflix_movies
+  SSLMode: disable
+
+Logger:
+  Level: info
+  Format: json

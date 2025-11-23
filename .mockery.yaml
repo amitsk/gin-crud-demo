@@ -1,0 +1,6 @@
+with-expecter: true
+packages:
+  github.com/amit/gin-crud-demo/internal/repository:
+    config:
+      all: true
+    dir: mocks

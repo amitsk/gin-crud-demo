@@ -26,6 +26,8 @@ go.work
 # Project specific
 bin/
 coverage.out
+coverage.html
+junit.xml
 config/config.yaml
 !config/config.example.yaml
 !config/config.prod.yaml

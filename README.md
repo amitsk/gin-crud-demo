@@ -6,8 +6,9 @@ A production-ready REST API for Netflix Movies built with Go, Gin, GORM, and Pos
 
 | Component | Technology |
 |-----------|------------|
-| Language | Go 1.25+ |
+| Language | Go 1.27+ |
 | Web Framework | Gin |
+| JSON | encoding/json/v2 |
 | Database | PostgreSQL |
 | ORM | GORM v2 |
 | Migrations | Goose v3 |
@@ -41,7 +42,7 @@ Modify `.env` to set your local environment variables.
 
 ### Prerequisites
 
-- Go 1.25+
+- Go 1.27+
 - Docker & Docker Compose
 - Make
 
